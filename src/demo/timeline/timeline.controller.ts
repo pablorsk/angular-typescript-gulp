@@ -10,7 +10,6 @@ module demoApp {
         ) {
             this.search = $routeParams.search;
             this.collection = TwitterService.data;
-            console.log('ddd', TwitterService.get());
         }
     }
 
