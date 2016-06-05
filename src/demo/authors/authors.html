@@ -11,7 +11,7 @@
                 <th>Date of dead</th>
             </tr>
         </thead>
-        <tr ng-repeat="author in vm.authors track by $index | orderBy:'name'">
+        <tr ng-repeat="author in vm.authors">
             <td>{{ author.id }}</td>
             <td>
                 <a href="#/authors/author/{{ author.id }}">{{ author.attributes.name  }}</a>
