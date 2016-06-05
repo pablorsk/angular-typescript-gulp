@@ -1,19 +1,20 @@
 /// <reference path="./_all.ts" />
 
 ((): void => {
-    var app = angular.module('demoApp', ['ngRoute', 'ngTwitter']);
+    var app = angular.module('demoApp', ['ngRoute', 'ngWebSocket']);
 
-    app.config(['$routeProvider', ($routeProvider) => {
+    app.config(['$routeProvider', ($routeProvider, $socketProvider) => {
         $routeProvider.when('/', {
-            controller: 'TimelinesController',
-            templateUrl: 'timelines/timelines.html',
+            controller: 'HomeController',
+            templateUrl: 'timeline/home.html',
             controllerAs: 'vm'
         })
-        .when('/timelines/timeline/:timelineId', {
+        .when('/timeline/:search', {
             controller: 'TimelineController',
-            templateUrl: 'timelines/timeline.html',
+            templateUrl: 'timeline/timeline.html',
             controllerAs: 'vm'
-        })
-    }]);
+        });
 
+        //$socketProvider.setUrl('ws://htv.matuu.com.ar/search/hackatec/');
+    }]);
 })();
