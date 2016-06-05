@@ -1,37 +1,34 @@
-<!--
-TS Angular Jsonapi Example
-Pablo Reyes
-
-@pablorsk
-http://github.com/pablorsk
--->
 <!DOCTYPE html>
 <html ng-app="demoApp">
 <head>
     <title>TS Angular Jsonapi Example</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+        <meta charset="utf-8">
+
+    <title>HashtagTv</title>
+
+    <link href="css/css.css" rel="stylesheet">
+
 </head>
 <body class="container">
-    <h1 ng-controller="GlobalController">TS Angular Jsonapi Example <small ng-animate="" ng-if="loading">Loading</small></h1>
+<div id="contenedor">
 
-    <nav>
-        <ul class="nav nav-pills pull-xs-right">
-            <li class="nav-item">
-                <a class="nav-link" href="#/">Search</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#/timeline/">Timeline</a>
-            </li>
-        </ul>
-    </nav>
+<h1>HashtagTv</h1>
+
+
 
     <div ng-view></div>
+
+</div>
+
+
 
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
     <script src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
     <script src="bower_components/angular-websocket/dist/angular-websocket.js"></script>
-    <!-- <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script> -->
     <script src="build/demo.js"></script>
-</body>
+
+    <!--  <script src="js/.... .min.js"></script>-->
+  </body>
 </html>
