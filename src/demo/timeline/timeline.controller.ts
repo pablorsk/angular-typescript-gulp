@@ -1,15 +1,30 @@
 module demoApp {
     export class TimelineController {
         public search = '';
-        public collection = [];
+        public tweet = {};
+        public i = 0;
 
         /** @ngInject */
         constructor (
             protected TwitterService,
-            protected $routeParams
+            protected $routeParams,
+            protected $interval
         ) {
             this.search = $routeParams.search;
-            this.collection = TwitterService.data;
+            TwitterService.setText(this.search);
+
+            this.$interval ( () => {
+                this.next();
+            }, 5000);
+            this.next();
+        }
+
+        public next() {
+            this.i++;
+            if (!angular.isDefined(this.TwitterService.data[this.i])) {
+                this.i = 0;
+            }
+            this.tweet = this.TwitterService.data[this.i];
         }
     }
 

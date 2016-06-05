@@ -1,9 +1,7 @@
 <div>
     <h1>Buscando {{ vm.search }}</h1>
-    <ul>
-        <div ng-repeat="data in vm.collection track by $index">
-            esto es el texto {{ data.text }}
-            {{ data.url }}
-        </div>
-    </ul>
+    <div>
+        {{ vm.tweet.text }}
+        {{ vm.tweet.url }}
+    </div>
 </div>

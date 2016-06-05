@@ -2,21 +2,36 @@
 
 module demoApp {
     export class TwitterService {
-        protected data = [];
+        public data = [{ text: 'loading...' }];
+        public text = '';
 
         /** @ngInject */
         constructor(
             protected $interval,
             protected $http
         ) {
-            console.log('wow');
+            let self = this;
             $interval( () => {
-                console.log('working :)');
-                this.data.push( {
-                    text: 'texto',
-                    url: 'gfffff'
-                                });
-            }, 1000);
+                self.reload();
+            }, 70000);
+        }
+
+        public reload() {
+            let self = this;
+
+            this.$http({
+                method: 'GET',
+                url: 'http://htv.matuu.com.ar/json/' + self.text + '/'
+            }).then( (response) => {
+                self.data = response.data.data;
+            }, function errorCallback(response) {
+                alert('Error URL');
+            });
+        }
+
+        public setText(texto) {
+            this.text = texto;
+            this.reload();
         }
 
     }
