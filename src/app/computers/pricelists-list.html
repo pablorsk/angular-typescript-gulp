@@ -1,0 +1,62 @@
+<div class="colmena-layout-margin">
+    <section class="tile md-whiteframe-1dp">
+
+        <!-- TITLE -->
+        <md-toolbar layout="row" layout-align="space-around center" ng-hide="vm.mdtable.optionsConfigTable.rowSelection && vm.mdtable.selected.length">
+            <rs-breadcrumbs>
+                <rs-crumb text="Inicio" rs-ui-state="company.dashboard"></rs-crumb>
+                <rs-crumb text="Lista de Precios"></rs-crumb>
+            </rs-breadcrumbs>
+
+            <rs-search-bar-element ng-model="search.$" >
+            </rs-search-bar-element>
+
+            <md-button ng-click="$state.go('company.pricelist', { objectId: pricelist.id })">
+                    Agregar Lista de Precio
+            </md-button>
+        </md-toolbar>
+        <!-- /TITLE -->
+
+        <rs-selected-bar ng-show="vm.mdtable.optionsConfigTable.rowSelection && vm.mdtable.selected.length"
+            selection="vm.mdtable.selected"
+            delete-fc="vm.delete(items)">
+        </rs-selected-bar>
+
+        <rs-table-bootstrap
+        rs-count="{{ vm.pricelists.length }}"
+        rs-ui-state="company.pricelist" rs-ui-state-params="{ objectId: pricelist.id }"
+        object-name="una Lista de Precios">
+            <table md-table md-row-select="vm.mdtable.optionsConfigTable.rowSelection" multiple="{{vm.mdtable.optionsConfigTable.multiSelect}}"
+            ng-model="vm.mdtable.selected" md-progress="promise">
+                <thead ng-if="!vm.mdtable.optionsConfigTable.decapitate" md-head md-order="vm.mdtable.query.order" md-on-reorder="vm.logOrder">
+                    <tr md-row>
+                        <th md-column md-order-by="attributes.name">Nombre</th>
+                        <th md-column md-numeric md-order-by="attributes.percent_price">Percent Price</th>
+                        <th md-column md-numeric md-order-by="attributes.percent_subdist">Percent Subdist</th>
+                        <th md-column md-numeric md-order-by="attributes.percent_prevent">Percent Prevent</th>
+                        <th md-column md-order-by="attributes.status">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row md-select="pricelist" md-auto-select="vm.mdtable.optionsConfigTable.autoSelect" ng-repeat="pricelist in vm.pricelists | toArray: false | filter: search: strict | orderBy: vm.mdtable.query.order | limitTo: vm.mdtable.query.limit : (vm.mdtable.query.page -1) * vm.mdtable.query.limit"
+                    ng-mouseover="pricelist.attributes.status = true" ng-mouseleave="pricelist.attributes.status = false"
+                    ng-dblclick="vm.show(pricelist)" style="cursor: pointer !important">
+                        <td md-cell>{{ pricelist.attributes.name }}</td>
+                        <td md-cell>{{ pricelist.attributes.percent_price }}</td>
+                        <td md-cell>{{ pricelist.attributes.percent_subdist }}</td>
+                        <td md-cell>{{ pricelist.attributes.percent_prevent }}</td>
+                        <td md-cell>
+                            <md-button style="box-sizing: border-box !important" ng-show="pricelist.attributes.status" ui-sref="company.pricelist({objectId: pricelist.id})"
+                            class="md-icon-button md-accent"><i class="material-icons">mode_edit</i></md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </rs-table-bootstrap>
+
+        <md-table-pagination ng-show="vm.pricelists.length !== 0" style="color: black !important" md-limit="vm.mdtable.query.limit" md-limit-options="vm.mdtable.limitOptions"
+        md-page="vm.mdtable.query.page" md-total="{{vm.pricelists.length}}" md-page-select="vm.mdtable.optionsConfigTable.pageSelect"
+        md-boundary-links="vm.mdtable.optionsConfigTable.boundaryLinks" md-on-paginate="vm.logPagination"></md-table-pagination>
+
+    </section>
+</div>

@@ -1,0 +1,711 @@
+/**
+ *  If you want to override some bootstrap variables, you have to change values here.
+ *  The list of variables are listed here bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
+ */
+$navbar-inverse-link-color: #5AADBB;
+$icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/";
+
+/**
+ *  Do not remove the comments below. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+
+
+// fix problem with md version 1.1.0
+// ng-hide and ng-show
+// https://github.com/angular/material/issues/2663
+md-toolbar.ng-animate {
+    transition: none;
+}
+
+
+
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.thumbnail {
+  height: 200px;
+
+  img.pull-right {
+    width: 50px;
+  }
+}
+
+.rs-ul {
+    list-style: none !important;
+}
+
+.container-fluid {
+    width: 100% !important;
+}
+
+.txr-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.hcenter {
+    border: 0;
+    padding: 5px;
+}
+
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+.vcenter-glyphicon {
+    padding-top: 5px !important;
+    box-sizing: border-box !important;
+}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.element-fixed {
+    position: fixed !important;
+    right: 50px !important;
+    z-index: 1 !important;
+    bottom: 5% !important;
+}
+
+/*********************************************************
+***        MEJOR EXPERIENCIA CON MATERIAL              ***
+*********************************************************/
+
+// labels material
+md-input-container label,
+md-select .md-select-value.md-select-placeholder {
+    color: rgba(0,0,0,0.59) !important;
+}
+
+// re ajusta el margin a la directiv md-input-container...
+md-input-container {
+    margin: 9px 0px 9px 0px !important;
+}
+
+// re ajusta el margin a la directiv md-contact-chips...
+md-contact-chips {
+    margin-bottom: 0px !important;
+}
+
+// elimina espacios en top y bot que no se seleccionan al pasar el mouse sobre los items...
+md-menu-content {
+    padding: 0 !important;
+}
+// ↑ similar al de arriba ↑
+md-menu-divider {
+    margin: 0 !important;
+}
+
+.colmena-format-md-button {
+    text-transform: none;
+}
+
+.colmena-format-md-button .material-icons {
+        font-size: 1.5em !important;
+}
+
+// establece un color base para los md-divider...
+md-divider {
+    border-color: #BDBDBD !important;
+}
+
+.colmena-sidenav-width {
+    width: 272px;
+    max-width: 272px;
+    min-width: 272px;
+}
+
+
+/*********************************************************
+***        CHAT              ***
+*********************************************************/
+.chatwrap {
+    margin: 8px; height: 80%; width: 50%;
+    display: flex; flex-direction: column;
+}
+.chatwrap .chatcontainer {
+    flex: 1 1 90%; display: flex; flex-direction: column;
+    background-color: #eee; border: 1px solid #ccc; overflow: auto;
+}
+.chatwrap .form { flex: 0 0 32px; display: flex; border: 1px solid #ddd; }
+.chatwrap .form > input[type=text] { flex: 1 1 auto; border: 1px solid #eee; }
+.chatwrap .form > input[type=button] { flex: 0 0 20%; border: 1px solid #eee; }
+.chatwrap .bubble { flex: 1 1 auto; clear: both; } /* clear the floats here on parent */
+.chatwrap .bubble p {
+    border-radius: 5px;
+    padding: 8px; margin: 8px 12px;
+    max-width: 80%;  /* this will make it not exceed 80% and then wrap */
+    position: relative; transition: background-color 0.5s;
+}
+.chatwrap .left p { background-color: #ccc; float: left; } /* floated left */
+.chatwrap .right p { background-color: #33c; color: #fff; float: right; } /* floated right */
+/* classes below are only for arrows, not relevant */
+.chatwrap .left p::before {
+    content: ''; position: absolute;
+    width: 0; height: 0; left: -8px; top: 8px;
+    border-top: 4px solid transparent;
+    border-right: 8px solid #ccc;
+    border-bottom: 4px solid transparent;
+}
+.chatwrap .right p::after {
+    content: ''; position: absolute;
+    width: 0; height: 0; right: -8px; bottom: 8px;
+    border-top: 4px solid transparent;
+    border-left: 8px solid #33c;
+    border-bottom: 4px solid transparent;
+}
+
+
+// labels material
+md-input-container label,
+md-select .md-select-value.md-select-placeholder {
+    color: rgba(0,0,0,0.59) !important;
+}
+
+/*********************************************************
+***                COLMENA SPECIALS                    ***
+*********************************************************/
+
+form.colmena-header-top {
+    margin-top: 20px;
+}
+
+// margin que da la posicion a las paginas en dashboard (en general)...
+.colmena-layout-margin {
+    margin: 3% 4% 2% 4%;
+}
+
+// proximamente en desuso...
+.colmena-md-button {
+    padding: 0 0 !important;
+}
+// reacomodo del texto (puede quedar en desuso a futuro)...
+.colmena-md-text-padding {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+}
+// fondo de las paginas fuera del dashboard...
+.colmena-md-bg-dark {
+    background-color: rgba(33, 33, 33, 0) !important;
+}
+// simula el efecto card de angular material (uso correcto, en los div's o en los md-content)...
+.colmena-md-12 {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+}
+// cambia el color de los input cuando se pasa el cursor por encima o se esta seleccionado...
+.md-input-white:hover, md-input-white:focus:hover {
+    border-color: white !important;
+}
+
+// proximamente en desuso...
+.colmena-color-white {
+    color: white !important;
+}
+
+// proximamente en desuso...
+.colmena-icon-align {
+    line-height: 1.5 !important
+}
+
+// cambia la posicion de las notificaciones...
+toast-top-right {
+    top: 70px !important;
+}
+
+// pone el alto de los contenedores hijos al 100% de su contenedor padre...
+.colmena-container-height {
+   min-height: 100% !important;
+   height: 100vh !important;
+}
+
+// elimina los estilos de la listas, y la reposiciona...
+.ul-sidenav {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+}
+// se da un alto por defecto los botones del sidenav...
+.li-sidenav {
+    height: 36px;
+    min-height: 36px !important;
+}
+// da un padding a los elementos hijos de las ul...
+.a-sidenav-padding {
+    padding-left: 50px !important;
+}
+
+// estilos de los botones del sidenav (material)...
+.colmena-sidenav-button {
+    text-align: left !important;
+    padding: 0px 0px  0px 15px;
+    width: 100% !important;
+    margin: 0 !important;
+}
+// pone a los contenedores en un width al 100% del padre...
+.colmena-container-width {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+// pone a los contenedores en un height al 100% del padre...
+.colmena-container-height {
+    height: 100% !important;
+}
+// posiciona el logo/marca de la empresa...
+#logo {
+    font-size: 1em;
+    box-sizing: border-box;
+    text-align: center !important;
+    padding-left: 0;
+}
+// hace al 100% de la pantalla a los hijos del wrap (toda la app)...
+#wrap > div {
+    width: 100% !important;
+}
+// boton en reposo...
+.colmena-active-hover {
+    background-color: transparent;
+}
+// cuando se hace hover y se activa el botton...
+.colmena-active-links, .colmena-active-hover:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+// quita la decoracion de los links de las migajas...
+.colmena-a-crumb {
+    text-decoration: none !important;
+}
+// hover a los links de las migajas...
+.colmena-a-crumb:hover, .colmena-a-crumb:visited, .colmena-a-crumb:focus {
+    color: rgba(255, 255, 255, 0.2) !important;
+}
+// desabilita un link...
+.colmena-crumb-disabled{
+    pointer-events: none !important;
+    cursor: default !important;
+}
+// elimina el efecto de apagarse del sidenav...
+md-backdrop { opacity: 0 !important }
+// md-divider pero vertical...
+.vertical-divider {
+  border-top-width: 0;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-color: #BDBDBD;
+  height: 100%;
+}
+
+// controla los estilos de los chips...
+.chipsdemoContactChips div.autocomplete {
+  min-height: 70px; }
+  .chipsdemoContactChips div.autocomplete input {
+    min-width: 420px; }
+
+.chipsdemoContactChips .md-item-text.compact {
+  padding-top: 8px;
+  padding-bottom: 8px; }
+
+.chipsdemoContactChips .contact-item {
+  box-sizing: border-box; }
+  .chipsdemoContactChips .contact-item.selected {
+    opacity: 0.5; }
+    .chipsdemoContactChips .contact-item.selected h3 {
+      opacity: 0.5; }
+  .chipsdemoContactChips .contact-item .md-list-item-text {
+    padding: 14px 0;
+    max-width: 190px; }
+    .chipsdemoContactChips .contact-item .md-list-item-text h3 {
+      margin: 0 !important;
+      padding: 0;
+      line-height: 1.2em !important; }
+    .chipsdemoContactChips .contact-item .md-list-item-text h3, .chipsdemoContactChips .contact-item .md-list-item-text p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden; }
+  @media (min-width: 960px) {
+    .chipsdemoContactChips .contact-item {
+      float: left;
+      width: 33%; } }
+
+.chipsdemoContactChips md-contact-chips {
+  margin-bottom: 10px; }
+
+.chipsdemoContactChips .md-chips {
+  padding: 5px 0 8px; }
+
+.chipsdemoContactChips .fixedRows {
+  height: 250px;
+  overflow: hidden; }
+
+/*********************************************************
+***                MATERIAL PALETTE                    ***
+*********************************************************/
+// Primary...
+$deep-purple: #673AB7;
+$deep-orange: #FF5722;
+$yellow:      #FFEB3B;
+$indigo:      #3F51B5;
+$green:       #4CAF50;
+$amber:       #FFC107;
+$blue:        #2196F3;
+$pink:        #E91E63;
+$teal:        #009688;
+$grey:        #9E9E9E;
+$cyan:        #00BCD4;
+$red:         #F44336;
+// Accent...
+$deep-purple-a: #7C4DFF;
+$deep-orange-a: #FF6E40;
+$yellow-a:      #FFFF00;
+$indigo-a:      #536DFE;
+$green-a:       #69F0AE;
+$amber-a:       #FFD740;
+$blue-a:        #448AFF;
+$pink-a:        #FF4081;
+$teal-a:        #64FFDA;
+$grey-a:        #9E9E9E;
+$cyan-a:        #18FFFF;
+$red-a:         #FF5252;
+
+/*********************************************************
+***                COLMENA CHAT                        ***
+*********************************************************/
+
+/* CSS talk bubble */
+.talk-bubble {
+	margin: 20px;
+    display: inline-block;
+    position: relative;
+	width: 310px;
+	height: auto;
+}
+
+// .talk-bubble-left {
+//     @extend .talk-bubble;
+// 	background-color: #BDBDBD;
+// }
+
+/*Right triangle, placed bottom right side slightly in*/
+.tri-right.btm-right:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+    left: auto;
+	right: 0px;
+	bottom: -20px;
+	border: 12px solid;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.btm-left:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+	left: 0px;
+    right: auto;
+    top: auto;
+	bottom: -20px;
+	border: 22px solid;
+	border-color: transparent transparent transparent #BDBDBD;
+}
+
+/* talk bubble contents */
+.talktext-left{
+	text-align: left;
+}
+.talktext-right{
+	text-align: right;
+}
+.talktext-left, .talktext-right {
+  line-height: 1.5em;
+//   padding: 1em;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
+
+// cambia el color de los picos de las burbujas del chat segun el theme de la compania.
+.deep-purple:after {
+    border-color: $deep-purple $deep-purple transparent transparent !important;
+}
+.blue:after {
+    border-color: $blue $blue transparent transparent !important;
+}
+.pink:after {
+    border-color: $pink $pink transparent transparent !important;
+}
+.teal:after {
+    border-color: $teal $teal transparent transparent !important;
+}
+.red:after {
+    border-color: $red $red transparent transparent !important;
+}
+.indigo:after {
+    border-color: $indigo $indigo transparent transparent !important;
+}
+.grey:after {
+    border-color: $grey $grey transparent transparent !important;
+}
+.cyan:after {
+    border-color: $cyan $cyan transparent transparent !important;
+}
+.green:after {
+    border-color: $green $green transparent transparent !important;
+}
+.yellow:after {
+    border-color: $yellow $yellow transparent transparent !important;
+}
+.amber:after {
+    border-color: $amber $amber transparent transparent !important;
+}
+.deep-orange:after {
+    border-color: $deep-orange $deep-orange transparent transparent !important;
+}
+
+/*********************************************************
+***                      DROP BOX                      ***
+*********************************************************/
+.drop-box {
+    // border: 3px dashed #BDBDBD;
+    border-radius: 3px;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.drop-box-radius {
+    border-radius: 100px;
+    box-shadow: inset 0 0 2px rgba(0,0,0,.12),inset 0 2px 4px rgba(0,0,0,.24);
+}
+
+.drop-box-square {
+    border: 3px dashed #BDBDBD;
+}
+
+.drop-box-square-shadow {
+    box-shadow: inset 0 0 2px rgba(0,0,0,.12),inset 0 2px 4px rgba(0,0,0,.24);
+}
+
+.dragover {
+    border: 3px dashed rgba(0, 0, 0, .3);
+}
+
+// Primary: cambia el color de fondo y fuente segun el theme de la compania.
+.deep-purple-bg {
+    background-color: $deep-purple !important;
+    color: white;
+}
+.blue-bg {
+    background-color: $blue !important;
+    color: white;
+}
+.pink-bg {
+    background-color: $pink !important;
+    color: white;
+}
+.teal-bg {
+    background-color: $teal !important;
+    color: white;
+}
+.red-bg {
+    background-color: $red !important;
+    color: white;
+}
+.indigo-bg {
+    background-color: $indigo !important;
+    color: white;
+}
+.grey-bg {
+    background-color: $grey !important;
+    color: black;
+}
+.cyan-bg {
+    background-color: $cyan !important;
+    color: black;
+}
+.green-bg {
+    background-color: $green !important;
+    color: black;
+}
+.yellow-bg {
+    background-color: $yellow !important;
+    color: black;
+}
+.amber-bg {
+    background-color: $amber !important;
+    color: black;
+}
+.deep-orange-bg {
+    background-color: $deep-orange !important;
+    color: white;
+}
+
+// Accent: cambia el color de fondo y fuente segun el theme de la compania.
+.deep-purple-bg-a {
+    background-color: $deep-purple-a !important;
+    color: white;
+}
+.blue-bg-a {
+    background-color: $blue-a !important;
+    color: white;
+}
+.pink-bg-a {
+    background-color: $pink-a !important;
+    color: white;
+}
+.teal-bg-a {
+    background-color: $teal-a !important;
+    color: black;
+}
+.red-bg-a {
+    background-color: $red-a !important;
+    color: white;
+}
+.indigo-bg-a {
+    background-color: $indigo-a !important;
+    color: white;
+}
+.grey-bg-a {
+    background-color: $grey-a !important;
+    color: black;
+}
+.cyan-bg-a {
+    background-color: $cyan-a !important;
+    color: black;
+}
+.green-bg-a {
+    background-color: $green-a !important;
+    color: black;
+}
+.yellow-bg-a {
+    background-color: $yellow-a !important;
+    color: black;
+}
+.amber-bg-a {
+    background-color: $amber-a !important;
+    color: black;
+}
+.deep-orange-bg-a {
+    background-color: $deep-orange-a !important;
+    color: black;
+}
+
+// pone el background transparente...
+.bg-transparent {
+    background-color: transparent !important;
+}
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+*/
+
+// import google fonts
+@import url(http://fonts.googleapis.com/css?family=Dosis:300,700|Ubuntu+Mono|Lato:300,400,700,300italic,400italic&subset=latin,latin-ext);
+
+// Bourbon
+@import 'bourbon';  // bourbon plugin
+
+// My variables, mixins and colors
+@import "inc/mixins"; // main mixins
+@import "inc/colors"; // colors variables
+@import "inc/variables"; // other variables
+
+// Vendor
+
+//Pages
+@import "pages/global"; // global page settings
+@import "pages/tree"; // file tree settings
+@import "pages/chat"; // chat page settings
+@import "pages/mail"; // mail page settings
+@import "pages/search_results"; // search results page settings
+
+//Layouts
+@import "layouts/boxed"; // boxed layout
+@import "layouts/hz-menu"; // horizontal menu
+@import "layouts/rtl"; // rtl layout
+
+// Sections
+@import "sections/content"; // content section
+@import "sections/header"; // header section
+@import "sections/nav"; // navigation section
+@import "sections/nav-min"; // navigation sm/xs
+@import "sections/page-header"; // page header section
+@import "sections/rightbar"; // rightbar section
+@import "sections/page-loader"; // page loader
+@import "sections/add-nav"; // additional navbar under breadcrumbs
+
+// Components
+@import "components/tiles"; // tiles
+@import "components/form-elements"; // form elements
+@import "components/ui-elements"; // ui elements
+@import "components/dropdowns"; // dropdowns
+@import "components/charts"; // charts
+@import "components/buttons"; // buttons
+@import "components/icons";  // icons
+@import "components/lists"; // lists
+@import "components/media"; // media
+@import "components/thumbnails"; // thumbnails
+@import "components/typography"; // typography
+@import "components/loading-bar"; // loading bar
+@import "components/daterangepicker"; // daterangepicker
+@import "components/alerts-notifications"; // alerts and notifications
+@import "components/tabs-pills"; // tabs and pills
+@import "components/modals"; // modals
+@import "components/portlets"; // portlets
+@import "components/progress"; // progress bars
+@import "components/tbox"; // table layout
+@import "components/tree"; // file tree
+@import "components/chosen"; // chosen plugin
+@import "components/tables"; // tables
+@import "components/cards"; // two sided cards
+@import "components/carousel"; // carousel
+@import "components/widgets"; // widgets
+@import "components/streamline"; // streamline
+@import "components/maps"; // maps
+@import "components/calendar"; // calendar
+@import "components/gallery"; // gallery
+@import "components/material"; // material design
+@import "components/masonry"; // masonry
+@import "components/intro"; // intro
+
+// Shared
+@import "shared/global"; // global shared settings
+@import "shared/color-schemes"; // color schemes
+@import "shared/print"; // print css
+@import "shared/animations"; // animations
+
+/**
+ *  Do not remove the comments below. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector

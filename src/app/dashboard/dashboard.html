@@ -1,0 +1,24 @@
+<div class="page" layout-margin>
+
+    <div layout="column">
+        <div layout-margin layout="row" layout-align="start" layout-xs="column" layout-align-xs="center center" layout-wrap ng-include="'app/dashboard/widgets/shortcuts/shortcuts.html'">
+        </div>
+        <div layout-margin layout="row" layout-align="" layout-sm="column" layout-xs="column" layout-wrap>
+            <md-content class="md-whiteframe-1dp" flex="55" flex-sm="100" ng-show="removeWidget1; dashboard.GlobalStateService.AppSettings.ENV === 'develop'" ng-init="removeWidget1 = true" ng-include="'app/dashboard/widgets/calendar/calendar.html'">
+            </md-content>
+            <md-content flex="40" flex-sm="100" flex-xs="100" layout="column" layout-align="space-between" class="md-whiteframe-1dp" ng-show="removeWidget2; dashboard.GlobalStateService.AppSettings.ENV === 'develop'"
+                ng-init="removeWidget2 = true" ng-include="'app/dashboard/widgets/quick_email/quick-email.html'">
+            </md-content>
+        </div>
+
+        <div layout-margin layout="row" layout-align="<center></center>" layout-sm="column" layout-xs="column" layout-wrap>
+            <!--<md-content flex="55" flex-sm="100" class="md-whiteframe-1dp" ng-show="removeWidget3" ng-init="removeWidget3 = true" ng-include="'app/dashboard/widgets/example3.html'">
+            </md-content>-->
+
+            <md-content flex="40" flex-sm="100" flex-xs="100" layout="column" layout-align="space-between" class="md-whiteframe-1dp" ng-show="removeWidget2; dashboard.GlobalStateService.AppSettings.ENV === 'develop'"
+                ng-init="removeWidget2 = true" ng-include="'app/dashboard/widgets/todolist/todolist.html'">
+            </md-content>
+        </div>
+    </div>
+
+</div>

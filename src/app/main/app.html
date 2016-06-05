@@ -1,0 +1,11 @@
+<md-sidenav  md-theme="customTheme" ng-if="classTheme = vm.ParamsService.params.primary_color+'-bg'" class="md-sidenav-left colmena-sidenav-width {{ classTheme }}" md-is-open="vm.CompanyThemesService.lockLeft" md-is-locked-open="vm.CompanyThemesService.lockLeft && $mdMedia('gt-md')"
+md-whiteframe="4" ng-include="'app/main/nav/sidenav.html'" ng-controller="NavController as vm"></md-sidenav>
+<div layout="column" flex>
+    <md-toolbar class="md-whiteframe-1dp site-content-toolbar" style="background-color: white; color: #616161" md-theme="customTheme" ng-include="'app/main/header/header.html'" ng-controller="HeaderController as header"></md-toolbar>
+    <md-content layout="column" flex md-scroll-y md-theme="customTheme" ui-view autoscroll="false" style="background-color: #e7eaeb"></md-content>
+</div>
+<!--<div
+    ng-include="app/main/chat/windows_chat/down-window-chat.html"
+    style="position: fixed; z-index:999; bottom: 0px !important; height: 350px !important; width: 300px !important; right: 30px"
+    md-theme="customTheme">
+</div>-->

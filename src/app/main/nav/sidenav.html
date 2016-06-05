@@ -1,0 +1,69 @@
+<header>
+    <md-toolbar class="md-hue-2">
+        <div class="md-toolbar-tools colmena-container-width">
+            <md-menu md-position-mode="target" md-offset="0 68" class="colmena-container-width colmena-container-height">
+                <a id="logo" md-ink-ripple ng-click="$mdOpenMenu()" class="md-button colmena-active-hover colmena-format-md-button colmena-sidenav-button colmena-container-height" href layout="row" layout-align="center center">
+                    <span style="background-image: url({{ vm.CompanyStateService.company.attributes.logo_url }}?type=square); background-size: cover; width: 30px; height: 30px; margin-right: 15px"></span>
+                    <span>{{ vm.CompanyStateService.company.attributes.name | uppercase}}</span>
+                </a>
+                <md-menu-content width="5" style="background-color: white;">
+                    <md-menu-item ng-repeat="company in vm.CompaniesService.companies">
+                        <md-button ng-model="company" ng-click="ctrl.sampleAction('share', $event); vm.changeCompany(company)" layout="row" layout-align="start center">
+                            <span style="background-image: url({{ company.attributes.logo_url }}?type=square); background-size: cover; width: 20px; height: 20px; margin-right: 15px"></span>
+                            {{ company.attributes.name }}
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+
+        </div>
+    </md-toolbar>
+    <!-- puede que proximamente -->
+    <!--<md-toolbar style="height: 150px !important;" class="md-primary md-hue-2" layout="row" layout-align="center center">
+    <md-icon style="font-size: 4em" class="material-icons">account_circle</md-icon>
+</md-toolbar>-->
+</header>
+<md-content flex style="overflow:hidden" class="{{ classTheme }}" ng-if="classTheme = vm.ParamsService.params.primary_color+'-bg'">
+    <md-toolbar>
+        <ul class="ul-sidenav">
+            <li class="li-sidenav" style="height:54px">
+                <a style="display: block; height:54px; padding-top:8px" ui-sref-active="colmena-active-links" md-ink-ripple class="md-button colmena-active-hover colmena-format-md-button colmena-sidenav-button" ui-sref="company.dashboard">
+                    <md-icon class="material-icons">home</md-icon><span class="colmena-md-text-padding">Inicio</span>
+                </a>
+            </li>
+        </ul>
+        <!--<md-divider style="border-color: rgba(255,255,255,.2) !important"></md-divider>-->
+        <sidenav-block rs-icon="description" rs-text="Ventas/Compras" rs-ui-state="company">
+            <sidenav-el rs-ui-state="company.quotations" ng-show="false">Presupuestos</sidenav-el>
+            <sidenav-el rs-ui-state="company.orders" rs-ui-state-params="">Remitos</sidenav-el>
+        </sidenav-block>
+
+        <sidenav-block rs-icon="description" rs-text="Régimen impositivo" rs-ui-state="company" ng-show="false">
+            <sidenav-el rs-ui-state="company.order">Facturas</sidenav-el>
+            <sidenav-el rs-ui-state="company.orders">Libro de IVA</sidenav-el>
+        </sidenav-block>
+        <sidenav-block rs-icon="people" rs-text="Entidades" rs-ui-state="company.entities">
+            <sidenav-el
+            ng-repeat="type in vm.EntityTypesService.typesCollection"
+            ng-show="type.status"
+            rs-ui-state="company.entities"
+            rs-ui-state-params="{ key_name: type.key_name }"
+            >{{ type.plural_name }}</sidenav-el>
+        </sidenav-block>
+
+
+        <sidenav-block rs-icon="shopping_cart" rs-text="Productos y Servicios" rs-ui-state="company.entities">
+            <ul nav-collapse class="ul-sidenav">
+                <sidenav-el rs-ui-state="company.products" ng-disabled="!vm.permissions['product.allowIndex']">Productos</sidenav-el>
+                <sidenav-el rs-ui-state="company.pricelists" ng-disabled="!vm.permissions['pricelist.allowIndex']">Listas de precios</sidenav-el>
+                <sidenav-el rs-ui-state="company.categories" ng-disabled="!vm.permissions['category.allowIndex']">Categorías de productos</sidenav-el>
+            </ul>
+        </sidenav-block>
+
+        <sidenav-block rs-icon="supervisor_account" rs-text="Usuarios" rs-ui-state="company.entities">
+            <sidenav-el rs-ui-state="company.users" ng-disabled="!vm.permissions['user.allowIndex']">Usuarios</sidenav-el>
+            <sidenav-el rs-ui-state="company.roles" ng-disabled="!vm.permissions['role.allowShow']">Configurar Roles</sidenav-el>
+        </sidenav-block>
+
+    </md-toolbar>
+</md-content>
