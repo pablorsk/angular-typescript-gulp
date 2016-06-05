@@ -6,7 +6,7 @@ module demoApp {
         public constructor(
             protected $scope
         ) {
-            let self = this;
+
         }
     }
 

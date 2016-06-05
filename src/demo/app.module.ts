@@ -1,17 +1,17 @@
 /// <reference path="./_all.ts" />
 
 ((): void => {
-    var app = angular.module('demoApp', ['ngRoute']);
+    var app = angular.module('demoApp', ['ngRoute', 'ngTwitter']);
 
     app.config(['$routeProvider', ($routeProvider) => {
         $routeProvider.when('/', {
-            controller: 'AuthorsController',
-            templateUrl: 'authors/authors.html',
+            controller: 'TimelinesController',
+            templateUrl: 'timelines/timelines.html',
             controllerAs: 'vm'
         })
-        .when('/authors/author/:authorId', {
-            controller: 'AuthorController',
-            templateUrl: 'authors/author.html',
+        .when('/timelines/timeline/:timelineId', {
+            controller: 'TimelineController',
+            templateUrl: 'timelines/timeline.html',
             controllerAs: 'vm'
         })
     }]);
