@@ -1,7 +1,7 @@
 module demoApp {
     export class TimelineController {
         public search = '';
-        public collection = {};
+        public collection = [];
 
         /** @ngInject */
         constructor (
@@ -9,6 +9,7 @@ module demoApp {
             protected $routeParams
         ) {
             this.search = $routeParams.search;
+            this.collection = TwitterService.data;
             console.log('ddd', TwitterService.get());
         }
     }

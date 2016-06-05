@@ -2,12 +2,20 @@
 
 module demoApp {
     export class TwitterService {
+        protected data = [];
 
         /** @ngInject */
         constructor(
-            protected $websocket
+            protected $websocket,
+            protected $interval
         ) {
             console.log('wow');
+            $interval( () => {
+                console.log('working :)');
+                this.data.push( {
+                    text: 'texto'
+                });
+            }, 1000);
         }
 
         public get() {
