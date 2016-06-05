@@ -1,7 +1,7 @@
 /// <reference path="./_all.ts" />
 
 ((): void => {
-    var app = angular.module('demoApp', ['ngRoute', 'ngWebSocket']);
+    var app = angular.module('demoApp', ['ngRoute']);
 
     app.config(['$routeProvider', ($routeProvider, $socketProvider) => {
         $routeProvider.when('/', {
